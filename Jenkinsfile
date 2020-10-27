@@ -1,9 +1,9 @@
 pipeline {
    agent any
-   stages {
+   stages { docker { image 'helloworld:latest' } }
       stage('build') {
          steps {
-            sh 'mkdir build; cd build; cmake -DCMAKE_TOOLCHAIN_FILE=../cmake/darwin.cmake -DCMAKE_BUILD_TYPE=Debug ..; make'
+            sh 'mkdir build; cd build; cmake -DCMAKE_BUILD_TYPE=Debug ..; make'
          }
       }
    }

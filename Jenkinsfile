@@ -1,6 +1,6 @@
 pipeline {
-   agent any
-   stages { docker { image 'helloworld:latest' } }
+   agent { docker { image 'helloworld:latest' } }
+   stages {
       stage('build') {
          steps {
             sh 'mkdir build; cd build; cmake -DCMAKE_BUILD_TYPE=Debug ..; make'
